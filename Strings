@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite uma string: ");
+        String input = scanner.nextLine();
+
+        int length = input.length();
+        System.out.println("a - Número de caracteres: " + length);
+        
+        String upperCaseString = input.toUpperCase();
+        System.out.println("b - String em maiúsculo: " + upperCaseString);
+        
+        int vowelCount = 0;
+        String vowels = "aeiouAEIOU";
+        for (char ch : input.toCharArray()) {
+            if (vowels.indexOf(ch) != -1) {
+                vowelCount++;
+            }
+        }
+        System.out.println("c - Número de vogais: " + vowelCount);
+        
+        boolean startsWithIFSP = input.toLowerCase().startsWith("ifsp");
+        System.out.println("d - Começa com 'IFSP': " + (startsWithIFSP ? "Sim" : "Não"));
+        
+        boolean endsWithIFSP = input.toLowerCase().endsWith("ifsp");
+        System.out.println("e - Termina com 'IFSP': " + (endsWithIFSP ? "Sim" : "Não"));
+        
+        int digitCount = 0;
+        for (char ch : input.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                digitCount++;
+            }
+        }
+        System.out.println("f - Número de dígitos: " + digitCount);
+        
+        String reversedString = new StringBuilder(input).reverse().toString();
+        boolean isPalindrome = input.equalsIgnoreCase(reversedString);
+        System.out.println("g - É um palíndromo: " + (isPalindrome ? "Sim" : "Não"));
+        
+        scanner.close();
+    }
+}
